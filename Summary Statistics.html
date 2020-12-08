@@ -1452,7 +1452,7 @@ prop.table(chisq.test(data,correct=FALSE)$expected,2)</code></pre></div>
 
 <ol>
 <li>Difference more likely it is that there is an association<br></li>
-<li>If calculated value &gt; than the critical value, we will fail to reject the H0. </li>
+<li>If the test-statistic is larger than the critical value, we can reject the null hypothesis, and therefore there is empirical evidence that there is an association. </li>
 </ol>
 
 <p><em>&quot;There appears to be an association between … and …. We need to examine how that association manifests itself, whether such an association is meaningful within the problem context and the extend to which the association can be explained by other factors. The association is likely to exist but not what it is or why it is.</em></p>
@@ -1471,6 +1471,8 @@ HA = not uniform distribution + There is evidence that there is a difference bet
 <div><pre><code class="language-none">x &lt;- c(frquencies)
 p &lt;- c(rep(1/5,n))
 chisq.test(x,p=p)</code></pre></div>
+
+<p>If the test-statistic is larger than the critical value, we can reject the null hypothesis, and therefore there is empirical evidence against the claim that this distribution follows a Uniform distribution.</p>
 
 <p><strong>Binomial:</strong></p>
 
@@ -1526,7 +1528,7 @@ or
 
 cj &lt;- seq(from = -0.5, to=6, by=1)
 nj &lt;- c(16, 30, 37, 7, 10)
-grouped.data(Group = cj, Frequency = nj)
+data &lt;- grouped.data(Group = cj, Frequency = nj)
 m &lt;- mean(data)
 
 pr &lt;- c(dpois(0, m),dpois(1,m),dpois(2, m), dpois(3, m), dpois(4, m), + (1-ppois(4,m)) )
@@ -1554,8 +1556,8 @@ Number of parameters = 2 --&gt; mean &amp; sd</p>
 cj &lt;- c(0, 1, 3, 10, 15, 30)
 nj &lt;- c(16, 30, 37, 7, 10)
 data &lt;- grouped.data(Group = cj, Frequency = nj) 
-m &lt;- 6.2
-s &lt;- 6.4
+m &lt;- mean(data)
+s &lt;- sqrt(emm(data,2))
 
 pr &lt;- c(pnorm(1,m,s), diff(pnorm(c(1,3),m,s)), diff(pnorm(c(3,10),m,s)), diff(pnorm(c(10,15),m,s)), 1 - pnorm(c(15),m,s) )
          

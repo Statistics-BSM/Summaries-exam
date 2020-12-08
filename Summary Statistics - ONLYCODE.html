@@ -1209,7 +1209,7 @@ or
 
 cj &lt;- seq(from = -0.5, to=6, by=1)
 nj &lt;- c(16, 30, 37, 7, 10)
-grouped.data(Group = cj, Frequency = nj)
+data &lt;- grouped.data(Group = cj, Frequency = nj)
 m &lt;- mean(data)
 
 pr &lt;- c(dpois(0, m),dpois(1,m),dpois(2, m), dpois(3, m), dpois(4, m), + (1-ppois(4,m)) )
@@ -1225,8 +1225,8 @@ chisq.test(nj, p = pr)</code></pre></div>
 cj &lt;- c(0, 1, 3, 10, 15, 30)
 nj &lt;- c(16, 30, 37, 7, 10)
 data &lt;- grouped.data(Group = cj, Frequency = nj) 
-m &lt;- 6.2
-s &lt;- 6.4
+m &lt;- mean(data)
+s &lt;- sqrt(emm(data,2))
 
 pr &lt;- c(pnorm(1,m,s), diff(pnorm(c(1,3),m,s)), diff(pnorm(c(3,10),m,s)), diff(pnorm(c(10,15),m,s)), 1 - pnorm(c(15),m,s) )
          
