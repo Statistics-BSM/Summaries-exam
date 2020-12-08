@@ -1203,11 +1203,13 @@ chisq.test(nj2,p=pr2)</code></pre></div>
 
 <p>Example:</p>
 
-<div><pre><code class="language-none">grouped.data(Group = cj, Frequency = nj)
-cj &lt;- c(-0.5, 0.5, 1.5, 2.5, 3.5, 4.5, 5.5)
-cj &lt;- seq(from = -0.5, to=6, by=1)
-seq(from = 1, to = 20)
+<div><pre><code class="language-none">cj &lt;- c(-0.5, 0.5, 1.5, 2.5, 3.5, 4.5, 5.5)
 
+or
+
+cj &lt;- seq(from = -0.5, to=6, by=1)
+nj &lt;- c(16, 30, 37, 7, 10)
+grouped.data(Group = cj, Frequency = nj)
 m &lt;- mean(data)
 
 pr &lt;- c(dpois(0, m),dpois(1,m),dpois(2, m), dpois(3, m), dpois(4, m), + (1-ppois(4,m)) )
